@@ -7,5 +7,6 @@ import apiLocal from './servidor/api.js'
 export default defineConfig({
   plugins: [react(), tailwindcss(), apiLocal()],
   server: { port: 5174 },
-  preview: { port: 4174 },
+  // En el servidor, nginx publica el puerto 80 y reenvía a este puerto interno.
+  preview: { port: 4174, host: '127.0.0.1', allowedHosts: true },
 })
